@@ -1,0 +1,23 @@
+# Extension source files - don't push to guide repo
+manifest.json
+background.js
+content.js
+popup.html
+popup.js
+icons/
+assets/
+temp/
+*.crx
+*.pem
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
