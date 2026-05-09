@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn cài đặt Facebook Note Breaker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0e27;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid #2d2d2d;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: white;
+            color: #1e40af;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .download-section h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+        }
+
+        .step {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #2d2d2d;
+            border-radius: 12px;
+            border-left: 5px solid #3b82f6;
+            position: relative;
+            counter-increment: step-counter;
+        }
+
+        .step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            background: #3b82f6;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+        }
+
+        .step h3 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            margin-left: 30px;
+        }
+
+        .step p {
+            color: #cccccc;
+            line-height: 1.8;
+            margin-left: 30px;
+            font-size: 1.05em;
+        }
+
+        .step code {
+            background: #1a1a1a;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .video-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #2d2d2d;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #3b82f6;
+        }
+
+        .video-section h2 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .video-placeholder {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 60px 20px;
+            color: #888;
+            font-style: italic;
+        }
+
+        .note {
+            background: #2d2d2d;
+            border-left: 5px solid #fbbf24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .note strong {
+            color: #fbbf24;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .note p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            border-top: 1px solid #3d3d3d;
+        }
+
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #60a5fa !important;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .step {
+                padding: 20px;
+                margin-left: 20px;
+            }
+
+            .step::before {
+                left: -15px;
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Facebook Note Breaker</h1>
+            <p>Viết ghi chú Facebook dài không giới hạn với thời hạn tùy chỉnh</p>
+        </div>
+
+        <div class="content">
+            <div class="download-section">
+                <h2>📥 Tải Extension</h2>
+                <a href="FB-Note-Breaker.zip" class="download-btn" download>Tải xuống FB-Note-Breaker.zip</a>
+                <p style="color: white; margin-top: 15px; font-size: 0.9em;">Nhấn vào nút để tải file extension về máy tính của bạn.</p>
+            </div>
+
+            <div class="note">
+                <strong>⚠️ Lưu ý quan trọng:</strong>
+                <p>Extension này chỉ hoạt động trên trình duyệt Chrome, Edge, Brave và các trình duyệt dựa trên Chromium. Không hỗ trợ Firefox.</p>
+            </div>
+
+            <h2 style="color: #60a5fa; margin-bottom: 30px; font-size: 2em;">📋 Hướng dẫn cài đặt</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <h3>Tải file extension</h3>
+                    <p>Nhấn vào nút <strong>"Tải xuống FB-Note-Breaker.zip"</strong> ở trên để tải file extension về máy tính của bạn.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Giải nén file ZIP</h3>
+                    <p>Sau khi tải xong, nhấn chuột phải vào file <code>FB-Note-Breaker.zip</code> và chọn <strong>"Extract All..." / "Giải nén tất cả..."</strong>. Bạn sẽ thấy thư mục <code>FB-Note-Breaker</code> chứa các file extension.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Mở trang Extensions trong Chrome</h3>
+                    <p>Mở trình duyệt Chrome/Edge, gõ <code>chrome://extensions</code> vào thanh địa chỉ và nhấn Enter. Hoặc vào menu <strong>⋮</strong> → <strong>Extensions / Tiện ích mở rộng</strong> → <strong>Manage Extensions / Quản lý tiện ích mở rộng</strong>.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Bật chế độ Developer Mode</h3>
+                    <p>Ở góc trên bên phải của trang Extensions, bật công tắc <strong>"Developer mode" / "Chế độ nhà phát triển"</strong>.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Load extension</h3>
+                    <p>Nhấn vào nút <strong>"Load unpacked" / "Tải tiện ích đã giải nén"</strong>. Chọn thư mục <code>FB-Note-Breaker</code> mà bạn đã giải nén ở Bước 2 (thư mục chứa file <code>manifest.json</code>).</p>
+                </div>
+
+                <div class="step">
+                    <h3>Hoàn tất!</h3>
+                    <p>Extension <strong>Facebook Note Breaker</strong> đã được cài đặt thành công! Bạn sẽ thấy icon của extension xuất hiện trên thanh công cụ. Truy cập Facebook và bắt đầu sử dụng ngay!</p>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>🎥 Video hướng dẫn chi tiết</h2>
+                <div class="video-placeholder">
+                    <p>Video hướng dẫn sẽ được thêm vào đây</p>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>💡 Mẹo sử dụng:</strong>
+                <p>Sau khi cài đặt, ghim extension vào thanh công cụ để dễ dàng truy cập. Nhấn vào icon extension khi đang ở Facebook để bắt đầu viết ghi chú dài không giới hạn!</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Phát triển bởi <a href="https://facebook.com/erik9910" target="_blank">Erik Luu</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2024 Facebook Note Breaker. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
