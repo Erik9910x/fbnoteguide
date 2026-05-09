@@ -82,6 +82,40 @@
             font-size: 1.8em;
         }
 
+        .features-section {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .features-section h2 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            color: #cccccc;
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
         .steps {
             counter-reset: step-counter;
         }
@@ -152,12 +186,94 @@
             font-size: 1.8em;
         }
 
-        .video-placeholder {
-            background: #1a1a1a;
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
             border-radius: 10px;
-            padding: 60px 20px;
-            color: #888;
-            font-style: italic;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .demo-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #2d2d2d;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .demo-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .demo-image {
+            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .demo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .demo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
         }
 
         .note {
@@ -239,6 +355,28 @@
                 <p style="color: white; margin-top: 15px; font-size: 0.9em;">Nhấn vào nút để tải file extension về máy tính của bạn.</p>
             </div>
 
+            <div class="features-section">
+                <h2>✨ Tính năng mới</h2>
+                <ul class="features-list">
+                    <li><strong>Nhạc trực tiếp:</strong> Có thể phát/preview nhạc ngay từ kết quả tìm kiếm</li>
+                    <li><strong>Giao diện mới:</strong> Thêm nút phát/tạm dừng/lưu, thanh cuộn đẹp hơn, chọn nhạc dễ hơn</li>
+                    <li><strong>Giới hạn nội dung:</strong> Nội dung ghi chú tối đa 600 ký tự (tương thích tốt hơn với Facebook)</li>
+                    <li><strong>Sửa lỗi & mượt hơn:</strong> Trải nghiệm chọn nhạc, bạn bè, xử lý lỗi tốt hơn</li>
+                </ul>
+            </div>
+
+            <div class="features-section">
+                <h2>🎯 Tính năng chính</h2>
+                <ul class="features-list">
+                    <li><strong>Vượt giới hạn 60 ký tự:</strong> Viết ghi chú dài tới 600 ký tự (giới hạn API Facebook cho note có nhạc)</li>
+                    <li><strong>Thời hạn tuỳ chỉnh:</strong> Chọn thời gian hiển thị từ 1 giờ đến 8 ngày, hoặc nhập số phút tuỳ ý</li>
+                    <li><strong>Chọn đối tượng:</strong> Công khai, bạn bè, danh bạ, hoặc tuỳ chỉnh danh sách bạn bè</li>
+                    <li><strong>Đính kèm & cắt nhạc:</strong> Thêm bài hát, chọn đoạn 30s, nghe thử trước khi chia sẻ</li>
+                    <li><strong>Giao diện tối:</strong> Thiết kế tối giản, dễ nhìn</li>
+                    <li><strong>Đa ngôn ngữ:</strong> Hỗ trợ Tiếng Việt và English</li>
+                </ul>
+            </div>
+
             <div class="note">
                 <strong>⚠️ Lưu ý quan trọng:</strong>
                 <p>Extension này chỉ hoạt động trên trình duyệt Chrome, Edge, Brave và các trình duyệt dựa trên Chromium. Không hỗ trợ Firefox.</p>
@@ -280,8 +418,23 @@
 
             <div class="video-section">
                 <h2>🎥 Video hướng dẫn chi tiết</h2>
-                <div class="video-placeholder">
-                    <p>Video hướng dẫn sẽ được thêm vào đây</p>
+                <div class="video-container">
+                    <video controls>
+                        <source src="video-guide.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ video.
+                    </video>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2>📸 Ảnh demo</h2>
+                <div class="demo-images">
+                    <div class="demo-image" onclick="openModal('demo1.png')">
+                        <img src="demo1.png" alt="Demo 1">
+                    </div>
+                    <div class="demo-image" onclick="openModal('demo2.png')">
+                        <img src="demo2.png" alt="Demo 2">
+                    </div>
                 </div>
             </div>
 
@@ -293,8 +446,24 @@
 
         <div class="footer">
             <p>Phát triển bởi <a href="https://facebook.com/erik9910" target="_blank">Erik Luu</a></p>
-            <p style="margin-top: 10px; font-size: 0.9em;">© 2024 Facebook Note Breaker. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2026 Facebook Note Breaker. All rights reserved.</p>
         </div>
     </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById('imageModal').style.display = 'block';
+            document.getElementById('modalImage').src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
